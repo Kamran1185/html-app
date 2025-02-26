@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "89:89"
+    volumes:
+      - ./template:/usr/share/nginx/html
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge
